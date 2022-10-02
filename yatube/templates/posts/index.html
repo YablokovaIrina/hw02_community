@@ -14,16 +14,15 @@
           Дата публикации: {{ post.pub_date|date:"d E Y" }}
         </li>
       </ul>
-    <p>{{ post.text|linebreaks }}</p>
-    {% if post.group %}
-      <a href="{% url 'posts:group_list' post.group.slug %}">
-        #{{ post.group.title }}
-      </a>
-    {% endif %} 
-    {% if not forloop.last %}
-      <hr />
-    {% endif %} 
+      <p>{{ post.text|linebreaks }}</p>
+      {% if post.group %}
+        <a href="{% url 'posts:group_list' post.group.slug %}">
+          #{{ post.group.title }}
+        </a>
+      {% endif %} 
+      {% if not forloop.last %}
+        <hr />
+      {% endif %} 
     {% endfor %}
   </div>
 {% endblock %}
-  
